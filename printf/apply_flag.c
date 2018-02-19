@@ -6,7 +6,7 @@
 /*   By: bchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 12:04:04 by bchan             #+#    #+#             */
-/*   Updated: 2018/02/19 11:47:01 by bchan            ###   ########.fr       */
+/*   Updated: 2018/02/16 16:22:12 by bchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ char	*apply_pound(char c, char *result)
 	if (c == 'X' && result[0] != '0')
 		tmp2 = ft_strjoin("0X", tmp1);
 	ft_strcpy(result, tmp2);
-	free(tmp1);
-	free(tmp2);
+	ft_strdel(&tmp1);
+	ft_strdel(&tmp2);
 	return (ft_strdup(result));
 }
 
@@ -67,7 +67,7 @@ char	*apply_flag(t_print *form, char *result)
 		temp = apply_pound(form->spec, result);
 	if (temp && temp != result)
 	{
-		free(result);
+		ft_strdel(&result);
 		result = temp;
 	}
 	return (result);

@@ -6,7 +6,7 @@
 /*   By: bchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/22 11:28:42 by bchan             #+#    #+#             */
-/*   Updated: 2018/02/19 11:41:56 by bchan            ###   ########.fr       */
+/*   Updated: 2018/02/19 11:41:42 by bchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*modify_string(t_print *form, char *result)
 		|| form->spec == 'D') && !(ft_strchr(form->flags, '+')) &&
 		ft_atoi(result) >= 0 && result[0] != ' ')
 		result = ft_insert_char(result, ' ', 0);
-	free(temp);
+	ft_strdel(&temp);
 	return (result);
 }
 
