@@ -6,7 +6,7 @@
 /*   By: bchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/22 11:28:42 by bchan             #+#    #+#             */
-/*   Updated: 2018/02/19 12:32:11 by bchan            ###   ########.fr       */
+/*   Updated: 2018/02/19 13:00:16 by bchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*modify_string(t_print *form, char *result)
 	result = apply_width(form, result);
 	if (form->precision >= 0)
 		result = apply_precision(temp, result, form);
-	ft_strdel(&temp);
+	free(temp);
 	return (result);
 }
 

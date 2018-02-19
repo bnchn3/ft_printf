@@ -6,7 +6,7 @@
 /*   By: bchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 12:31:26 by bchan             #+#    #+#             */
-/*   Updated: 2018/02/16 16:22:32 by bchan            ###   ########.fr       */
+/*   Updated: 2018/02/19 12:39:11 by bchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,9 @@ char	*pull_voidp(t_print *form, va_list ap)
 	char	*temp;
 
 	arg = va_arg(ap, void *);
-	temp = ft_hex_convert((uintmax_t)arg);
+	temp = ft_hex_convert((unsigned int)arg);
 	result = ft_strjoin("0x", temp);
-	ft_strdel(&temp);
+	free(temp);
 	result = modify_string(form, result);
 	return (result);
 }
