@@ -6,7 +6,7 @@
 /*   By: bchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/22 11:28:42 by bchan             #+#    #+#             */
-/*   Updated: 2018/02/19 13:13:25 by bchan            ###   ########.fr       */
+/*   Updated: 2018/02/19 13:15:17 by bchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*modify_string(t_print *form, char *result)
 		result = apply_precision(temp, result, form);
 	if (ft_strchr(form->flags, ' ') && (form->spec == 'd' || form->spec == 'i'
 		|| form->spec == 'D') && !(ft_strchr(form->flags, '+')) && result[0]
-		!= ' ')
+		!= ' ' && result[0] != '-')
 		result = ft_insert_char(result, ' ', 0);
 	free(temp);
 	return (result);
