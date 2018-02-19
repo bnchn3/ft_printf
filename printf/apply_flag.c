@@ -6,7 +6,7 @@
 /*   By: bchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 12:04:04 by bchan             #+#    #+#             */
-/*   Updated: 2018/02/19 12:59:54 by bchan            ###   ########.fr       */
+/*   Updated: 2018/02/19 13:09:06 by bchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,23 @@ char	*force_dec(char *result)
 
 char	*apply_pound(char c, char *result)
 {
-	char	*tmp1;
-	char	*tmp2;
+	char	*tmp;
 
 	if (c == 'a' || c == 'A' || c == 'e' || c == 'E' || c == 'f' || c == 'F'
 		|| c == 'g' || c == 'G')
 		return (force_dec(result));
-	if (c == 'd' || c == 'i')
+	if (c == 'd' || c == 'i' || c == 'D')
 		return (result);
-	tmp1 = ft_strdup(result);
-	tmp2 = result;
-	if ((c == 'o' || c == 'O') && ft_atoi(result) != 0)
-		tmp2 = ft_strjoin("0", tmp1);
+	tmp = NULL;
+	if ((c == 'o' || c == 'O') && result[0] != '0')
+		tmp = ft_strjoin("0", result);
 	if (c == 'x' && result[0] != '0')
-		tmp2 = ft_strjoin("0x", tmp1);
+		tmp = ft_strjoin("0x", result);
 	if (c == 'X' && result[0] != '0')
-		tmp2 = ft_strjoin("0X", tmp1);
-	ft_strcpy(result, tmp2);
-	free(tmp1);
-	free(tmp2);
-	return (ft_strdup(result));
+		tmp = ft_strjoin("0X", result);
+	if (tmp)
+		ft_strdel(&result);
+	return (ft_strdup(tmp));
 }
 
 char	*apply_flag(t_print *form, char *result)
