@@ -6,7 +6,7 @@
 /*   By: bchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 12:04:04 by bchan             #+#    #+#             */
-/*   Updated: 2018/02/19 13:09:06 by bchan            ###   ########.fr       */
+/*   Updated: 2018/02/19 13:11:54 by bchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,11 @@ char	*apply_pound(char c, char *result)
 	if (c == 'X' && result[0] != '0')
 		tmp = ft_strjoin("0X", result);
 	if (tmp)
+	{
 		ft_strdel(&result);
-	return (ft_strdup(tmp));
+		return (ft_strdup(tmp));
+	}
+	return (result);
 }
 
 char	*apply_flag(t_print *form, char *result)
