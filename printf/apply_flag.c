@@ -6,7 +6,7 @@
 /*   By: bchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 12:04:04 by bchan             #+#    #+#             */
-/*   Updated: 2018/02/19 12:30:58 by bchan            ###   ########.fr       */
+/*   Updated: 2018/02/19 12:33:27 by bchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*apply_pound(char c, char *result)
 	if (c == 'a' || c == 'A' || c == 'e' || c == 'E' || c == 'f' || c == 'F'
 		|| c == 'g' || c == 'G')
 		return (force_dec(result));
-	if (c == 'd' || c == 'i' || c == 'D')
+	if (c == 'd' || c == 'i')
 		return (result);
 	tmp1 = ft_strdup(result);
 	tmp2 = result;
