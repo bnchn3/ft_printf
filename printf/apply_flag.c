@@ -6,7 +6,7 @@
 /*   By: bchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 12:04:04 by bchan             #+#    #+#             */
-/*   Updated: 2018/02/16 16:22:12 by bchan            ###   ########.fr       */
+/*   Updated: 2018/02/19 12:30:58 by bchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char	*apply_flag(t_print *form, char *result)
 	char *temp;
 
 	temp = NULL;
-	if (form->spec == 'd' || form->spec == 'i' || form->spec == 'D')
+	if (form->spec == 'd' || form->spec == 'i')
 	{
 		if (ft_strchr(form->flags, '+') && result[0] != '-')
 			temp = ft_strjoin("+", result);
