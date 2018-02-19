@@ -6,7 +6,7 @@
 /*   By: bchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 12:04:04 by bchan             #+#    #+#             */
-/*   Updated: 2018/02/19 13:11:54 by bchan            ###   ########.fr       */
+/*   Updated: 2018/02/19 13:18:25 by bchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,18 @@ char	*apply_flag(t_print *form, char *result)
 	char *temp;
 
 	temp = NULL;
-	if (form->spec == 'd' || form->spec == 'i')
+	if (form->spec == 'd' || form->spec == 'i' || form->spec == 'D')
 	{
-		if (ft_strchr(form->flags, '+') && ft_atoi(result) >= 0)
+		if (ft_strchr(form->flags, '+') && result[0] != '-')
 			temp = ft_strjoin("+", result);
-		else if (ft_strchr(form->flags, ' ') && ft_atoi(result) >= 0)
+		else if (ft_strchr(form->flags, ' ') && result[0] != '-')
 			temp = ft_strjoin(" ", result);
 	}
 	if (ft_strchr(form->flags, '#') && number_spec(form->spec))
 		temp = apply_pound(form->spec, result);
 	if (temp && temp != result)
 	{
-		free(result);
+		ft_strdel(&result);
 		result = temp;
 	}
 	return (result);
