@@ -6,7 +6,7 @@
 #    By: bchan <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/09 13:34:04 by bchan             #+#    #+#              #
-#    Updated: 2018/02/19 12:10:59 by bchan            ###   ########.fr        #
+#    Updated: 2018/02/19 12:22:02 by bchan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,4 +47,4 @@ fclean: clean
 	/bin/rm -f $(NAME)
 	make fclean -C ./libft/
 
-re: fclean all
+ire: fclean all
