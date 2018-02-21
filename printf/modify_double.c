@@ -6,7 +6,7 @@
 /*   By: bchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 13:13:15 by bchan             #+#    #+#             */
-/*   Updated: 2018/02/21 13:13:39 by bchan            ###   ########.fr       */
+/*   Updated: 2018/02/21 13:22:06 by bchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ char	*modify_double(t_print *form, char *result)
 	if (form->spec == 'f' || form->spec == 'F')
 		truncate(result, 6);
 	else if (form->spec == 'e' || form->spec == 'E')
-		result = sci_convert(result, n);
+		result = sci_convert(result);
 	if (form->spec == 'F' || form->spec == 'E')
 	{
 		i = 0;
