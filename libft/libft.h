@@ -6,7 +6,7 @@
 /*   By: bchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:11:54 by bchan             #+#    #+#             */
-/*   Updated: 2018/02/19 12:59:09 by bchan            ###   ########.fr       */
+/*   Updated: 2018/02/21 13:15:43 by bchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,6 @@ char				*ft_strnew_char(size_t n, char c);
 char				*ft_insert_char(char *s, char c, int index);
 void				*ft_meminsert(void *s, int c, int n);
 char				*ft_max_itoa(long long n);
+char				*ft_dtoa(long double n);
 
 #endif
