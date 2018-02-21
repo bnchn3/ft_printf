@@ -6,13 +6,13 @@
 /*   By: bchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 13:13:15 by bchan             #+#    #+#             */
-/*   Updated: 2018/02/21 13:22:06 by bchan            ###   ########.fr       */
+/*   Updated: 2018/02/21 13:23:42 by bchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	truncate(char *result, int n)
+void	truncate_dec(char *result, int n)
 {
 	int	i;
 
@@ -74,10 +74,10 @@ char	*sci_convert(char *result)
 	while (ft_atoi(result) < 1 && ft_atoi(result) > -1 && result[i])
 	{
 		swap(result, i, i + 1);
-		result = memmove(&result[i - 1], result[i], ft_strlen(&result[i]) + 1);
+		result = ft_memmove(&result[i - 1], result[i], ft_strlen(&result[i]) + 1);
 		count--;
 	}
-	truncate(result, 6);
+	truncate_dec(result, 6);
 	ft_strpchar(&result, 'e');
 	add_exp(result, count);
 	return (result);
@@ -88,7 +88,7 @@ char	*modify_double(t_print *form, char *result)
 	int i;
 
 	if (form->spec == 'f' || form->spec == 'F')
-		truncate(result, 6);
+		truncate_dec(result, 6);
 	else if (form->spec == 'e' || form->spec == 'E')
 		result = sci_convert(result);
 	if (form->spec == 'F' || form->spec == 'E')
