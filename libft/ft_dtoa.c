@@ -6,7 +6,7 @@
 /*   By: bchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 13:34:09 by bchan             #+#    #+#             */
-/*   Updated: 2018/02/21 13:15:18 by bchan            ###   ########.fr       */
+/*   Updated: 2018/02/21 13:34:10 by bchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ static long double	round_num(long double n)
 	save = n;
 	if (n < 1 && n > -1)
 		return (0);
-	while (save >= 10 || save <= -10)
-		save /= 10;
+	while (save >= 10)
+		save -= 10;
+	while (save <= -10)
+		save += 10;
 	while (save >= 1)
 		save--;
 	while (save <= -1)
