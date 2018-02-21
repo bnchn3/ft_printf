@@ -6,7 +6,7 @@
 /*   By: bchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 12:44:29 by bchan             #+#    #+#             */
-/*   Updated: 2018/02/21 13:53:26 by bchan            ###   ########.fr       */
+/*   Updated: 2018/02/21 13:55:00 by bchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,7 @@ char	*length_none(t_print *form, va_list ap, char c)
 		return (length_l(form, ap, c));
 	if (c == '%')
 		return (pull_mod(form));
+	if (c == 'f' || c == 'F')
+		return (pull_double(form, ap));
 	return (NULL);
 }
