@@ -29,6 +29,12 @@ void	sig_digit(t_print *form, char *result)
 	while (count > 0 && result[i])
 		if (ft_isdigit(result[i++]))
 			count--;
+	round_up(result, i);
+	if (ft_strchr(&result[i], '.'))
+	{
+		while (result[i] != '.')
+			result[i++] = '0';
+	}
 	result[i] = '\0';
 }
 
@@ -56,10 +62,15 @@ char	*find_shortest(t_print *form, char *result)
 	sig_digit(form, result);
 	trailing_zeroes(form, result);
 	temp = ft_strdup(result);
-	temp = sci_convert(temp, form->precision);
-	if (ft_atoi(&temp[ft_strlen(temp) - 3]) < -4 ||
-		(ft_atoi(&temp[ft_strlen(temp) - 3]) >= form->precision &&
-		form->precision >= 0))
+	if (!ft_strchr(temp, '.'))
+	    ft_strpchar(&temp, '.');
+	if (form->precision == -1)
+	    temp = sci_convert(temp, 5);
+	else
+	    temp = sci_convert(temp, form->precision - 1);
+	if (ft_atoi(&temp[ft_strlen(temp) - 3]) < -4 || (ft_atoi(&temp[ft_strlen(temp)
+			- 3]) >= form->precision) || ft_atoi(&temp[ft_strlen(temp) - 3]) >= 6
+			&& form->precision == -1)
 	{
 		ft_strdel(&result);
 		result = temp;
