@@ -64,6 +64,7 @@ char			*find_shortest(t_print *form, char *result);
 char			*print_zero(char *result, int n);
 void			truncate_dec(char *result, int n);
 void			round_up(char *result, int i);
+char			*pull_ldouble(t_print *form, va_list ap, int c)
 int				ft_printf(const char *format, ...);
 
 #endif
