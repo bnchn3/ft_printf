@@ -21,6 +21,8 @@ void	truncate_dec(char *result, int n)
 		i++;
 	while (n-- >= 0)
 		i++;
+	if (result[i] >= 5)
+		result[i - 1] += 1;
 	result[i] = '\0';
 }
 
