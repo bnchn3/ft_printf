@@ -66,6 +66,8 @@ char	*sci_convert(char *result, int n)
 	count = 0;
 	while (result[i] && result[i] != '.')
 		i++;
+	if (ft_atoi(result) == 0 && ft_atoi(&result[i + 1]) == 0)
+		return (print_zero(result, n));
 	while (ft_atoi(result) >= 10 || ft_atoi(result) <= -10)
 	{
 		swap(result, i, i - 1);

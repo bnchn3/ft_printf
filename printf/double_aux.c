@@ -71,3 +71,10 @@ char	*find_shortest(t_print *form, char *result)
 		ft_strdel(&temp);
 	return (result);
 }
+
+char	*print_zero(char *result, int n)
+{
+	truncate_dec(result, n);
+	ft_strpstr(&result, "e+00");
+	return (result);
+}

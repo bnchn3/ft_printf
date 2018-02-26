@@ -61,6 +61,8 @@ char			*modify_double(t_print *form, char *result);
 int				number_spec2(char c);
 char			*sci_convert(char *result, int n);
 char			*find_shortest(t_print *form, char *result);
+char			*print_zero(char *result, int n);
+void			truncate_dec(char *result, int n);
 int				ft_printf(const char *format, ...);
 
 #endif
