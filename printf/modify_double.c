@@ -6,7 +6,7 @@
 /*   By: bchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 13:13:15 by bchan             #+#    #+#             */
-/*   Updated: 2018/02/23 18:25:23 by bchan            ###   ########.fr       */
+/*   Updated: 2018/02/26 12:33:59 by bchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	truncate_dec(char *result, int n)
 		i++;
 	while (n-- >= 0)
 		i++;
-	if (result[i] >= 5)
+	if (result[i] >= 6)
 		result[i - 1] += 1;
 	result[i] = '\0';
 }
