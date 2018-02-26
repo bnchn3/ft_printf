@@ -6,7 +6,7 @@
 /*   By: bchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/23 18:23:28 by bchan             #+#    #+#             */
-/*   Updated: 2018/02/26 13:04:10 by bchan            ###   ########.fr       */
+/*   Updated: 2018/02/26 14:15:52 by bchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,14 @@ char	*find_shortest(t_print *form, char *result)
 	trailing_zeroes(form, result);
 	temp = ft_strdup(result);
 	if (!ft_strchr(temp, '.'))
-	    ft_strpchar(&temp, '.');
+		ft_strpchar(&temp, '.');
 	if (form->precision == -1)
-	    temp = sci_convert(temp, 5);
+		temp = sci_convert(temp, 5);
 	else
-	    temp = sci_convert(temp, form->precision - 1);
-	if (ft_atoi(&temp[ft_strlen(temp) - 3]) < -4 || (ft_atoi(&temp[ft_strlen(temp)
-			- 3]) >= form->precision && form->precision >= 0) ||
-			(ft_atoi(&temp[ft_strlen(temp) - 3]) >= 6 && form->precision == -1))
+		temp = sci_convert(temp, form->precision - 1);
+	if (ft_atoi(&temp[ft_strlen(temp) - 3]) < -4 || (ft_atoi(&temp[
+		ft_strlen(temp) - 3]) >= form->precision && form->precision >= 0) ||
+		(ft_atoi(&temp[ft_strlen(temp) - 3]) >= 6 && form->precision == -1))
 	{
 		ft_strdel(&result);
 		result = temp;
