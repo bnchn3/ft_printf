@@ -69,8 +69,8 @@ char	*find_shortest(t_print *form, char *result)
 	else
 	    temp = sci_convert(temp, form->precision - 1);
 	if (ft_atoi(&temp[ft_strlen(temp) - 3]) < -4 || (ft_atoi(&temp[ft_strlen(temp)
-			- 3]) >= form->precision) || ft_atoi(&temp[ft_strlen(temp) - 3]) >= 6
-			&& form->precision == -1)
+			- 3]) >= form->precision) || (ft_atoi(&temp[ft_strlen(temp) - 3]) >= 6
+			&& form->precision == -1))
 	{
 		ft_strdel(&result);
 		result = temp;
