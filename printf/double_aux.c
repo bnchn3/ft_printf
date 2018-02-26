@@ -6,7 +6,7 @@
 /*   By: bchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/23 18:23:28 by bchan             #+#    #+#             */
-/*   Updated: 2018/02/23 18:25:00 by bchan            ###   ########.fr       */
+/*   Updated: 2018/02/26 13:04:10 by bchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,29 @@ char	*print_zero(char *result, int n)
 	truncate_dec(result, n);
 	ft_strpstr(&result, "e+00");
 	return (result);
+}
+
+void	round_up(char *result, int i)
+{
+	if (result[i] >= '5' && result[i] <= '9')
+		if (ft_isdigit(result[i - 1]))
+		{
+			if (result[i - 1] < '9')
+				result[i - 1] += 1;
+			else
+			{
+				result[--i] = '0';
+				while (result != &result[i])
+				{
+					if (result[i - 1] < '9' && result[i - 1] >= '0')
+					{
+						result[i - 1] += 1;
+						break ;
+					}
+					result[--i] = '0';
+					if (result[i - 1] == '.')
+						i--;
+				}
+			}
+		}
 }
