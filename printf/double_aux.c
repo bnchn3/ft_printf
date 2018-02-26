@@ -24,7 +24,7 @@ void	sig_digit(t_print *form, char *result)
 		count = 1;
 	else
 		count = 6;
-	while (result[i] <= '0' || result[i] > '9')
+	while ((result[i] <= '0' || result[i] > '9') && result[i])
 		i++;
 	while (count > 0 && result[i])
 		if (ft_isdigit(result[i++]))
