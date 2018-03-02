@@ -26,7 +26,7 @@ char	*apply_pound(char c, char *result)
 	if (tmp)
 	{
 		ft_strdel(&result);
-		return (ft_strdup(tmp));
+		return (tmp);
 	}
 	return (result);
 }
