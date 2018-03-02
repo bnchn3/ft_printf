@@ -88,7 +88,7 @@ char	*hex_float_convert(t_print *form, char *result, int i)
 	if (*result == '-')
 		ft_strpchar(&temp, '-');
 	if (*result == 0)
-		ft_strpstr(&temp, "0x0")
+		ft_strpstr(&temp, "0x0");
 	else
 		ft_strpstr(&temp, "0x1");
 	ft_strpstr(&temp, (save = bin_to_hex(ft_strchr(result, '.') + 1)));
