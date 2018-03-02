@@ -25,15 +25,6 @@ void	truncate_dec(char *result, int n)
 	result[i] = '\0';
 }
 
-void	swap(char *result, int i, int j)
-{
-	char c;
-
-	c = result[i];
-	result[i] = result[j];
-	result[j] = c;
-}
-
 char	*add_exp(char *result, int count)
 {
 	char *temp;
@@ -58,27 +49,39 @@ char	*add_exp(char *result, int count)
 	return (result);
 }
 
-char	*sci_convert(char *str, int n)
+int		is_zero(char *result)
 {
 	int i;
-	int count;
 
 	i = 0;
-	count = 0;
-	while (str[i] && str[i] != '.')
+	while (result[i])
+	{
+		if (result[i] != '.' || result[i] != '0' || result[i] != '-')
+			return (0);
 		i++;
-	if (ft_atoi(str) == 0 && ft_atoi(&str[i + 1]) == 0)
-		return (print_zero(str, n));
-	while (i >= 3 || (*str != '-' && i >= 2))
-	{
-		swap(str, i, i - 1);
-		count++;
-		i--;
 	}
-	while ((*str == '0' || (*str == '-' && *(str + 1) == '0')) && str[i])
+	return (1);
+}
+
+char	*sci_convert(char *str, int n)
+{
+	char	*temp;
+	int		count;
+
+	temp = ft_strchr(str, '.');
+	count = 0;
+	if (is_zero(result))
+		return (print_zero(str, n));
+	while (str - temp >= 3 || (*str != '-' && str - temp >= 2))
 	{
-		swap(str, i, i + 1);
-		ft_memmove(&str[i - 1], &str[i], ft_strlen(&str[i]) + 1);
+		ft_swap(temp, temp - 1);
+		count++;
+		temp--;
+	}
+	while ((*str == '0' || (*str == '-' && *(str + 1) == '0')) && *temp)
+	{
+		ft_swap(temp, temp + 1);
+		ft_memmove(temp - 1, temp, ft_strlen(temp) + 1);
 		count--;
 	}
 	truncate_dec(str, n);

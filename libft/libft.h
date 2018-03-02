@@ -114,5 +114,6 @@ void				*ft_meminsert(void *s, int c, int n);
 char				*ft_max_itoa(long long n);
 char				*ft_dtoa(long double n, int i);
 void				ft_capitalize(char *result);
+void				ft_swap(char *tmp1, char *tmp2);
 
 #endif
