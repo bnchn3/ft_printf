@@ -6,7 +6,7 @@
 /*   By: bchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 12:43:36 by bchan             #+#    #+#             */
-/*   Updated: 2018/03/02 11:48:55 by bchan            ###   ########.fr       */
+/*   Updated: 2018/03/02 13:03:12 by bchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,16 @@
 char	*pull_ldouble(t_print *form, va_list ap, int c)
 {
 	long double	arg;
-	char				*result;
+	char		*result;
 
-	if (c == 'f' || c == 'F' || c == 'e' || c == 'E' || c == 'g' || c == 'G')
+	if (c == 'f' || c == 'F' || c == 'e' || c == 'E' || c == 'g' || c == 'G' ||
+			c == 'a' || c == 'A')
 	{
 		arg = va_arg(ap, long double);
-		result = ft_dtoa(arg, 0);
+		if (c == 'a' || c == 'A')
+			result = ft_dtoa(arg, 0, 2L);
+		else
+			result = ft_dtoa(arg, 0, 10L);
 		result = modify_string(form, result);
 		return (result);
 	}
