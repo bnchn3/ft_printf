@@ -94,5 +94,5 @@ char	*hex_float_convert(t_print *form, char *result, int i)
 	ft_strpstr(&temp, (save = bin_to_hex(ft_strchr(result, '.') + 1)));
 	ft_strdel(&save);
 	ft_strdel(&result);
-	return (result);
+	return (temp);
 }
