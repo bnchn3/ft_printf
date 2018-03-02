@@ -58,33 +58,33 @@ char	*add_exp(char *result, int count)
 	return (result);
 }
 
-char	*sci_convert(char *result, int n)
+char	*sci_convert(char *str, int n)
 {
 	int i;
 	int count;
 
 	i = 0;
 	count = 0;
-	while (result[i] && result[i] != '.')
+	while (str[i] && str[i] != '.')
 		i++;
-	if (ft_atoi(result) == 0 && ft_atoi(&result[i + 1]) == 0)
-		return (print_zero(result, n));
-	while (ft_atoi(result) >= 10 || ft_atoi(result) <= -10)
+	if (ft_atoi(str) == 0 && ft_atoi(&str[i + 1]) == 0)
+		return (print_zero(str, n));
+	while (i >= 3 || (*str != '-' && i >= 2))
 	{
-		swap(result, i, i - 1);
+		swap(str, i, i - 1);
 		count++;
 		i--;
 	}
-	while (ft_atoi(result) < 1 && ft_atoi(result) > -1 && result[i])
+	while ((*str == '0' || (*str == '-' && *(str + 1) == '0')) && str[i])
 	{
-		swap(result, i, i + 1);
-		ft_memmove(&result[i - 1], &result[i], ft_strlen(&result[i]) + 1);
+		swap(str, i, i + 1);
+		ft_memmove(&str[i - 1], &str[i], ft_strlen(&str[i]) + 1);
 		count--;
 	}
-	truncate_dec(result, n);
-	ft_strpchar(&result, 'e');
-	result = add_exp(result, count);
-	return (result);
+	truncate_dec(str, n);
+	ft_strpchar(&str, 'e');
+	str = add_exp(str, count);
+	return (str);
 }
 
 char	*modify_double(t_print *form, char *result)
