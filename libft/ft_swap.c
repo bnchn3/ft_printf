@@ -12,7 +12,7 @@
 
 #include <libft.h>
 
-void	swap(char *tmp1, char *tmp2)
+void	ft_swap(char *tmp1, char *tmp2)
 {
 	char c;
 
