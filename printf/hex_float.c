@@ -64,6 +64,7 @@ char	*bin_to_hex(char *result)
 	char	*save;
 	int		i;
 
+	i = 0;
 	result = hex_prep(result);
 	temp = &result[ft_strlen(result) - 4];
 	save = ft_strdup("");
@@ -76,7 +77,7 @@ char	*bin_to_hex(char *result)
 	return (save);
 }
 
-char	*hex_float_convert(t_print *form, char *result, int i)
+char	*hex_float_convert(char *result, int i)
 {
 	char	*temp;
 	char	*save;
