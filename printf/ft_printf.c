@@ -6,7 +6,7 @@
 /*   By: bchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/22 11:28:42 by bchan             #+#    #+#             */
-/*   Updated: 2018/02/26 14:28:51 by bchan            ###   ########.fr       */
+/*   Updated: 2018/02/19 13:15:17 by bchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ char	*check_length(const char *format, va_list ap, t_print *form)
 		return (length_j(form, ap, format[i]));
 	if (format[i - 1] == 'z')
 		return (length_z(form, ap, format[i]));
+	if (format[i - 1] == 'L')
+		return (pull_ldouble(form, ap, format[i]));
 	return (length_none(form, ap, format[i]));
 }
 

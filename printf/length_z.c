@@ -6,11 +6,23 @@
 /*   By: bchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 12:43:36 by bchan             #+#    #+#             */
-/*   Updated: 2018/02/26 14:22:31 by bchan            ###   ########.fr       */
+/*   Updated: 2018/03/02 11:48:55 by bchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+
+char	*pull_ldouble(t_print *form, va_list ap, int c)
+{
+	long double	arg;
+	char		*result;
+
+	c = 0;
+	arg = va_arg(ap, long double);
+	result = ft_dtoa(arg, 0);
+	result = modify_string(form, result);
+	return (result);
+}
 
 char	*pull_ssizet(t_print *form, va_list ap)
 {
