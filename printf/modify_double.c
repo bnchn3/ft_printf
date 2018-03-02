@@ -56,7 +56,7 @@ int		is_zero(char *result)
 	i = 0;
 	while (result[i])
 	{
-		if (result[i] != '.' || result[i] != '0' || result[i] != '-')
+		if (result[i] != '.' && result[i] != '0')
 			return (0);
 		i++;
 	}
