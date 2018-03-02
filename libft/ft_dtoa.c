@@ -6,7 +6,7 @@
 /*   By: bchan <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 13:34:09 by bchan             #+#    #+#             */
-/*   Updated: 2018/03/02 11:47:28 by bchan            ###   ########.fr       */
+/*   Updated: 2018/03/02 11:59:48 by bchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static char			*get_number(long double n, char *temp)
 	if (n < 1 && n > -1)
 		return (ft_strcpy(temp, "0"));
 	if (n < 0)
-		n *= -1;
+		n *= -1L;
 	while (ft_power(10L, i) <= n)
 		i++;
 	while (--i >= 0)
