@@ -15,13 +15,16 @@
 char	*pull_ldouble(t_print *form, va_list ap, int c)
 {
 	long double	arg;
-	char		*result;
+	char				*result;
 
-	c = 0;
-	arg = va_arg(ap, long double);
-	result = ft_dtoa(arg, 0);
-	result = modify_string(form, result);
-	return (result);
+	if (c == 'f' || c == 'F' || c == 'e' || c == 'E' || c == 'g' || c == 'G')
+	{
+		arg = va_arg(ap, long double);
+		result = ft_dtoa(arg, 0);
+		result = modify_string(form, result);
+		return (result);
+	}
+	return (length_none(form, ap, c));
 }
 
 char	*pull_ssizet(t_print *form, va_list ap)

@@ -72,7 +72,7 @@ char	*sci_convert(char *str, int n)
 	count = 0;
 	if (is_zero(str))
 		return (print_zero(str, n));
-	while (str - temp >= 3 || (*str != '-' && str - temp >= 2))
+	while (temp - str >= 3 || (*str != '-' && temp - str >= 2))
 	{
 		ft_swap(temp, temp - 1);
 		count++;
