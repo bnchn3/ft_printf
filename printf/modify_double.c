@@ -70,7 +70,7 @@ char	*sci_convert(char *str, int n)
 
 	temp = ft_strchr(str, '.');
 	count = 0;
-	if (is_zero(result))
+	if (is_zero(str))
 		return (print_zero(str, n));
 	while (str - temp >= 3 || (*str != '-' && str - temp >= 2))
 	{
