@@ -95,7 +95,7 @@ char				*ft_dtoa(long double n, int i, long double base)
 	if (n - save != 0)
 	{
 		save = get_decimal(n - save, &result);
-		temp = get_number(save, ft_strdup(""));
+		temp = get_number(save, ft_strdup(""), base);
 		ft_strpstr(&result, temp);
 	}
 	else
